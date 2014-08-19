@@ -1,225 +1,116 @@
 <?xml version="1.0"?>
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:spin="http://spinrdf.org/spin#"
+    xmlns:sp="http://spinrdf.org/sp#"
     xmlns:terms="http://smartplatforms.org/terms#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:dcterms="http://purl.org/dc/terms/"
     xmlns:prov="http://www.w3.org/ns/prov#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns="http://trump-india-uk.org/example/hypertension#"
-    xmlns:spcode="http://smartplatforms.org/terms/codes/"
+    xmlns:hypertension1="http://trump-india-uk.org/example/hypertension#"
+    xmlns:hypertension="http://trump-india-uk.org/policies/hypertension#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:v="http://www.w3.org/2006/vcard/ns#"
-  xml:base="http://trump-india-uk.org/example/hypertension">
+  xml:base="http://trump-india-uk.org/policies/hypertension">
   <owl:Ontology rdf:about="">
-    <owl:imports rdf:resource="http://www.w3.org/ns/prov-o"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Created with TopBraid Composer</owl:versionInfo>
-    <owl:imports rdf:resource="http://smartplatforms.org/terms"/>
+    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
+    <owl:imports rdf:resource="http://trump-india-uk.org/example/hypertension"/>
+    <owl:imports rdf:resource="http://www.dotrural.ac.uk/ontologies/policies"/>
   </owl:Ontology>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#provider">
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+  <rdf:Description rdf:about="http://trump-india-uk.org/example/hypertension#Encounter_2">
+    <prov:wasAssociatedWith rdf:resource="http://trump-india-uk.org/example/hypertension#drdavid"/>
   </rdf:Description>
-  <prov:Role rdf:ID="nurse_role"/>
-  <terms:Procedure rdf:ID="bp_measure">
-    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >2014-05-12T04:00:00Z</dcterms:date>
-    <terms:procedureName>
-      <terms:CodedValue rdf:ID="CodedValue_2">
-        <terms:code>
-          <spcode:Procedure rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/19681004">
-            <terms:system rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >http://purl.bioontology.org/ontology/SNOMEDCT/</terms:system>
-            <dcterms:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >Nursing evaluation of patient and report</dcterms:title>
-            <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >19681004</dcterms:identifier>
-          </spcode:Procedure>
-        </terms:code>
-      </terms:CodedValue>
-    </terms:procedureName>
-    <terms:procedureStatus rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT/385658003"/>
-    <terms:provider>
-      <terms:Provider rdf:ID="susan"/>
-    </terms:provider>
-    <terms:belongsTo>
-      <terms:MedicalRecord rdf:ID="bob_record"/>
-    </terms:belongsTo>
-    <prov:atLocation>
-      <terms:Organization rdf:ID="GoodHospital"/>
-    </prov:atLocation>
-    <prov:generated>
-      <terms:BloodPressure rdf:ID="BloodPressure_1">
-        <terms:diastolic>
-          <terms:VitalSign rdf:ID="VitalSign_2">
-            <terms:vitalName>
-              <terms:CodedValue rdf:ID="CodedValue_5">
-                <terms:code rdf:resource="http://purl.bioontology.org/ontology/LNC/8462-4"/>
-              </terms:CodedValue>
-            </terms:vitalName>
-            <terms:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-            >98</terms:value>
-          </terms:VitalSign>
-        </terms:diastolic>
-        <terms:systolic>
-          <terms:VitalSign rdf:ID="VitalSign_1">
-            <terms:vitalName>
-              <terms:CodedValue rdf:ID="CodedValue_4">
-                <terms:code rdf:resource="http://purl.bioontology.org/ontology/LNC/8480-6"/>
-              </terms:CodedValue>
-            </terms:vitalName>
-            <terms:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-            >143</terms:value>
-          </terms:VitalSign>
-        </terms:systolic>
-        <terms:method>
-          <terms:CodedValue rdf:ID="CodedValue_3">
-            <terms:code rdf:resource="http://smartplatforms.org/terms/codes/BloodPressureMethod#machine"/>
-          </terms:CodedValue>
-        </terms:method>
-      </terms:BloodPressure>
-    </prov:generated>
-  </terms:Procedure>
-  <terms:Participant rdf:ID="participation_1">
-    <terms:person rdf:resource="#susan"/>
-    <terms:organization rdf:resource="#GoodHospital"/>
-    <terms:role rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >practice_nurse</terms:role>
-  </terms:Participant>
-  <prov:Generation rdf:ID="bp_gen">
-    <prov:atLocation rdf:resource="#GoodHospital"/>
-    <prov:entity rdf:resource="#BloodPressure_1"/>
-  </prov:Generation>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#Person">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Person"/>
+  <rdf:Description rdf:about="http://trump-india-uk.org/example/hypertension#VitalSign_2">
+    <terms:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >98</terms:value>
   </rdf:Description>
-  <terms:VitalSignSet rdf:about="http://smartplatforms.org/terms#VitalSignSet_1">
-    <terms:encounter>
-      <terms:Encounter rdf:ID="Encounter_1">
-        <terms:provider rdf:resource="#susan"/>
-        <prov:atLocation rdf:resource="#GoodHospital"/>
-        <prov:qualifiedAssociation>
-          <prov:Association rdf:ID="Association_2">
-            <prov:agent>
-              <terms:Demographics rdf:ID="bob_personal_info">
-                <foaf:gender rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >Male</foaf:gender>
-                <v:bday rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                >12/7/54</v:bday>
-                <terms:belongsTo rdf:resource="#bob_record"/>
-              </terms:Demographics>
-            </prov:agent>
-            <prov:hadRole>
-              <prov:Role rdf:ID="patient_role"/>
-            </prov:hadRole>
-          </prov:Association>
-        </prov:qualifiedAssociation>
-        <prov:used rdf:resource="#bob_record"/>
-        <terms:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-        >2014-05-12T04:00:00Z</terms:startDate>
-        <terms:belongsTo rdf:resource="#bob_record"/>
-        <terms:encounterType>
-          <terms:CodedValue rdf:ID="CodedValue_1">
-            <terms:code rdf:resource="http://smartplatforms.org/terms/codes/EncounterType#inpatient"/>
-          </terms:CodedValue>
-        </terms:encounterType>
-        <prov:wasAssociatedWith rdf:resource="#susan"/>
-      </terms:Encounter>
-    </terms:encounter>
-    <terms:belongsTo rdf:resource="#bob_record"/>
-    <terms:bloodPressure rdf:resource="#BloodPressure_1"/>
-    <dcterms:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-    >2014-05-12T04:00:00Z</dcterms:date>
-  </terms:VitalSignSet>
-  <terms:CodedValue rdf:ID="CodedValue_8">
-    <dcterms:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Patient referral to specialist investigation</dcterms:title>
-    <terms:code rdf:resource="http://smartplatforms.org/terms/codes/DocumentType#referral"/>
-  </terms:CodedValue>
-  <spcode:SNOMED rdf:ID="SNOMED_1">
-    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >25064002</dcterms:identifier>
-    <terms:system rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >http://purl.bioontology.org/ontology/SNOMEDCT/</terms:system>
-    <dcterms:title rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-    >Headache</dcterms:title>
-  </spcode:SNOMED>
-  <prov:Role rdf:ID="doctor_role"/>
-  <terms:Encounter rdf:ID="Encounter_2">
-    <prov:generated>
-      <terms:Problem rdf:ID="headache">
-        <terms:encounters rdf:resource="#Encounter_2"/>
-        <terms:belongsTo rdf:resource="#bob_record"/>
-        <terms:problemName>
-          <terms:CodedValue rdf:ID="CodedValue_6">
-            <terms:code rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT/25064002"/>
-          </terms:CodedValue>
-        </terms:problemName>
-      </terms:Problem>
-    </prov:generated>
-    <prov:used rdf:resource="#BloodPressure_1"/>
-    <prov:qualifiedUsage>
-      <prov:Usage rdf:ID="Usage_2">
-        <prov:entity rdf:resource="#BloodPressure_1"/>
-        <prov:atLocation rdf:resource="#GoodHospital"/>
-        <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-        >2014-05-19T04:00:00Z</prov:atTime>
-      </prov:Usage>
-    </prov:qualifiedUsage>
-    <terms:facility rdf:resource="#GoodHospital"/>
-    <terms:belongsTo rdf:resource="#bob_record"/>
-    <terms:encounterType>
-      <terms:CodedValue rdf:ID="CodedValue_7">
-        <terms:code rdf:resource="http://smartplatforms.org/terms/codes/EncounterType#inpatient"/>
-      </terms:CodedValue>
-    </terms:encounterType>
-    <prov:generated>
-      <terms:Document rdf:ID="referral_document">
-        <prov:wasGeneratedBy rdf:resource="#Encounter_2"/>
-        <terms:provider>
-          <terms:Provider rdf:ID="drdavid"/>
-        </terms:provider>
-        <terms:belongsTo rdf:resource="#bob_record"/>
-      </terms:Document>
-    </prov:generated>
-    <prov:qualifiedStart>
-      <prov:Start rdf:ID="Encounter_2_Start">
-        <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-        >2014-05-19T04:00:00Z</prov:atTime>
-      </prov:Start>
-    </prov:qualifiedStart>
-    <terms:startDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
-    >2014-05-19T04:00:00Z</terms:startDate>
-    <prov:used rdf:resource="#bob_record"/>
-    <prov:atLocation rdf:resource="#GoodHospital"/>
-    <terms:provider rdf:resource="#drdavid"/>
-    <prov:wasInformedBy rdf:resource="#Encounter_1"/>
-  </terms:Encounter>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#Encounter">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#Document">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#BloodPressure">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#Organization">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Organization"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Location"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#Procedure">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#VitalSignSet">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#Problem">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://smartplatforms.org/terms#MedicalRecord">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  <rdf:Description rdf:about="http://www.w3.org/ns/prov#InstantaneousEvent">
+    <spin:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://www.w3.org/ns/prov#qualifiedGeneration"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >bpr</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://smartplatforms.org/terms#BloodPressure"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#entity"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >bpr</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >bpr</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#systolic"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sys</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sys</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#value"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sysval</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <sp:Filter>
+            <sp:expression>
+              <sp:gt>
+                <sp:arg1 rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >sysvalue</sp:varName>
+                </sp:arg1>
+                <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >140</sp:arg2>
+              </sp:gt>
+            </sp:expression>
+          </sp:Filter>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >x</sp:varName>
+                </sp:subject>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
+                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A0"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Activation"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A0"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
+            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spin:rule>
   </rdf:Description>
 </rdf:RDF>
 
