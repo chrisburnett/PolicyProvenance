@@ -131,7 +131,7 @@ public class Experiment
         // print results
         System.out.println("\n\nRESULTS");
         System.out.println("=======");
-        System.out.println("Missing links\tInferred statements");
+        System.out.println("Missing links\tAvg. Inferred statements");
         for(int k = 1; k < possibleTriples.size(); k++)
         {
         	double sum = 0;
