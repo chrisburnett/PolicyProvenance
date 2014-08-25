@@ -1,2 +1,2 @@
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
-mvn exec:java -Dexec.mainClass=uk.ac.abdn.csd.polprov.Experiment
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home
+mvn exec:java -Dexec.mainClass=uk.ac.abdn.csd.polprov.Experiment -Dhttp.proxyHost=proxy.abdn.ac.uk -Dhttp.proxyPort=8080
