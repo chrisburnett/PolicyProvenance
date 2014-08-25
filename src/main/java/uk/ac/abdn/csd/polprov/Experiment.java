@@ -1,14 +1,17 @@
 package uk.ac.abdn.csd.polprov;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.topbraid.spin.inference.SPINInferences;
 import org.topbraid.spin.system.SPINModuleRegistry;
 import org.topbraid.spin.util.JenaUtil;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -44,7 +47,7 @@ public class Experiment
         // proceed to read the domain specific policy rules, policyProv language 
         // and inference rules
         model.read("file:rdf/hypertensionPolicy.rdf");
-        model.read("file:rdf/smart.owl");
+        //model.read("file:rdf/smart.owl");
         
         // strip out provenance links not required for evaluation
         model.remove(model.listStatements(null, model.getProperty("http://www.w3.org/ns/prov#atLocation"), (RDFNode)null));
@@ -74,34 +77,21 @@ public class Experiment
 		// Run policy inferences
 		System.out.println("Running inference rules...");
 		SPINInferences.run(ontModel, policyTriples, null, null, false, null);
-		System.out.println("Inferred policy enactment triples: " + policyTriples.size());
+        Set<Statement> policySet = filterStatementsByNS(policyTriples.listStatements(), POLICY_NAMESPACE);
+		System.out.println("Inferred policy enactment triples: " + policySet.size());
+		
 		// Run missing provenance inference rules
         model.read("file:rdf/policies.rdf");
 		SPINInferences.run(ontModel, possibleTriples, null, null, false, null);
+		// remove and reset in preparation for the experiment
+		ontModel.removeSubModel(possibleTriples);
+		ontModel.reset();
 
-		// Filter out pol inferences and prov statements into sets
-        StmtIterator possibleStatements = possibleTriples.listStatements();
-        StmtIterator allStatements = model.listStatements(); 
-        Set<Statement> inferenceSet = new HashSet<Statement>();
-        Set<Statement> provSet = new HashSet<Statement>();
-        while(possibleStatements.hasNext()) {
-        	Statement s = possibleStatements.next();
-        	if(s.getPredicate().getNameSpace().equals(POLICY_NAMESPACE)) {
-        		inferenceSet.add(s);
-        		System.out.println(s.toString());
-        	}
-        }
-		System.out.println("Possible PROV triples inferred: " + inferenceSet.size());
-
-        while(allStatements.hasNext()) {
-        	Statement s = allStatements.next();
-        	if(s.getPredicate().getNameSpace().equals(PROV_NAMESPACE)) {
-        		provSet.add(s);
-        		System.out.println(s.toString());
-        	}
-        }
+		// Seperate out pol inferences and prov statements into sets
+		Set<Statement> provSet = filterStatementsByNS(model.listStatements(), PROV_NAMESPACE);
         System.out.println("PROV statements found: " + provSet.size());
-
+        Set<Statement> inferenceSet = filterStatementsByNS(possibleTriples.listStatements(), POLICY_NAMESPACE);
+		System.out.println("Possible PROV triples inferred: " + inferenceSet.size());
 
         // generate the power set of 'degradation situations'
         System.out.print("Generating power set of provenance degradations...");
@@ -111,8 +101,58 @@ public class Experiment
         // for each one run the rules and see how many inferences we keep
         // for now, no breakdown by rule type
         int i = 0;
-        for(Set<Statement> s : pset)
-        	System.out.print("\r"+i+++" of "+pset.size());
+        
+        // result storage should be an array of arrays where the main
+        // index is the number of missing elements, and the array inside
+        // holds the inference counts 
+        Map<Integer,List<Integer>> results = new HashMap<Integer, List<Integer>>();
+        // create an empty list for each number of possible missing links
+        for(int j = 0; j <= provSet.size(); j++) results.put(j, new ArrayList<Integer>());
+        
+        for(Set<Statement> s : pset) {
+        	// remove the links in s temporarily
+        	List<Statement> testList = Lists.newArrayList(s); 
+        	ontModel.remove(testList);
+        	// regenerate the inferences
+         	Model testModel = ModelFactory.createDefaultModel();
+         	ontModel.addSubModel(testModel);
+    		SPINInferences.run(ontModel, testModel, null, null, false, null);
+        	System.out.print("\r"+ i++ +" of "+pset.size());
+        	// add to result structure
+        	// we subtract three to quickly get rid of the three rdf:type inferences that seem to get made
+        	results.get(s.size()).add((int) testModel.size()-3);
+        	// replace removed statements
+    		ontModel.add(testList);
+    		// remove inferences and reset
+    		ontModel.removeSubModel(testModel);
+    		ontModel.reset();
+        }
+        
+        // print results
+        System.out.println("\n\nRESULTS");
+        System.out.println("=======");
+        System.out.println("Missing links\tInferred statements");
+        for(int k = 1; k < possibleTriples.size(); k++)
+        {
+        	double sum = 0;
+        	for(int r : results.get(k)) sum += r;
+        	double avg = sum / results.get(k).size();
+        	System.out.println(k + "\t\t" + avg);
+        }
         
     }
+    
+    private static Set<Statement> filterStatementsByNS(StmtIterator si, String ns)
+    {
+        Set<Statement> set = new HashSet<Statement>();
+    	while(si.hasNext()) {
+        	Statement s = si.next();
+        	if(s.getPredicate().getNameSpace().equals(ns)) {
+        		set.add(s);
+        		System.out.println(s.toString());
+        	}
+        }
+    	return set;
+    }
+    
 }
