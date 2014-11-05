@@ -3,7 +3,6 @@ package uk.ac.abdn.csd.polprov;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -65,7 +64,7 @@ public class Experiment
      	OntModel ontModel = JenaUtil.createOntologyModel(OntModelSpec.OWL_MEM, model);
 
 		// Create and add models for inferred triples
-     	// inferred by simulated policy enactment rules
+     	 // inferred by simulated policy enactment rules
      	Model policyTriples = ModelFactory.createDefaultModel();
      	// inferred by policy-prov rules	
      	Model possibleTriples = ModelFactory.createDefaultModel(); 
@@ -99,18 +98,7 @@ public class Experiment
         Set<Set<Statement>> pset = Sets.powerSet(provSet);
         System.out.println("finished " + pset.size() + " situations.");
         
-        // run the condition only degrading the canonical prov layer
-        runCondition(ontModel, possibleTriples, provSet, pset);
-        // run the condition degrading prov and the policy enactment record
-        // TODO: need to union provset with the policyset - is there a method for doing this? 
-        provSet.addAll(policySet);
-        runCondition(ontModel, possibleTriples, provSet, pset);
-    }
-
-	private static void runCondition(OntModel ontModel, Model possibleTriples,
-			Set<Statement> provSet, Set<Set<Statement>> pset)
-	{
-		// for each one run the rules and see how many inferences we keep
+        // for each one run the rules and see how many inferences we keep
         // for now, no breakdown by rule type
         int i = 0;
         
@@ -143,13 +131,7 @@ public class Experiment
         // print results
         System.out.println("\n\nRESULTS");
         System.out.println("=======");
-        System.out.println("FULL POSSIBLE TRIPLE LIST:");
-        StmtIterator s = possibleTriples.listStatements();
-        while(s.hasNext()) System.out.println(s.next());
-        System.out.println("FULL INITIAL TRIPLE LIST:");
-        Iterator<Statement> s2 = provSet.iterator();
-        while(s2.hasNext()) System.out.println(s2.next());
-        System.out.println("Missing links\tInferred statements");
+        System.out.println("Missing links\tAvg. Inferred statements");
         for(int k = 1; k < possibleTriples.size(); k++)
         {
         	double sum = 0;
@@ -157,7 +139,8 @@ public class Experiment
         	double avg = sum / results.get(k).size();
         	System.out.println(k + "\t\t" + avg);
         }
-	}
+        
+    }
     
     private static Set<Statement> filterStatementsByNS(StmtIterator si, String ns)
     {
