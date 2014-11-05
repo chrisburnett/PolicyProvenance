@@ -143,13 +143,15 @@ public class Experiment
         // print results
         System.out.println("\n\nRESULTS");
         System.out.println("=======");
+
         System.out.println("FULL POSSIBLE TRIPLE LIST:");
         StmtIterator s = possibleTriples.listStatements();
         while(s.hasNext()) System.out.println(s.next());
         System.out.println("FULL INITIAL TRIPLE LIST:");
         Iterator<Statement> s2 = provSet.iterator();
         while(s2.hasNext()) System.out.println(s2.next());
-        System.out.println("Missing links\tInferred statements");
+        System.out.println("Missing links\tAvg. Inferred statements");
+
         for(int k = 1; k < possibleTriples.size(); k++)
         {
         	double sum = 0;
