@@ -14,343 +14,236 @@
     xmlns:spl="http://spinrdf.org/spl#"
   xml:base="http://trump-india-uk.org/policies/hypertensionPolicy">
   <owl:Ontology rdf:about="">
-    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
-    <owl:imports rdf:resource="http://topbraid.org/spin/spinmapl"/>
+    <owl:imports rdf:resource="http://www.dotrural.ac.uk/ontologies/policies"/>
+    <owl:imports rdf:resource="http://trump-india-uk.org/example/hypertension"/>
     <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >Created with TopBraid Composer</owl:versionInfo>
-    <owl:imports rdf:resource="http://trump-india-uk.org/example/hypertension"/>
-    <owl:imports rdf:resource="http://www.dotrural.ac.uk/ontologies/policies"/>
+    <owl:imports rdf:resource="http://topbraid.org/spin/spinmapl"/>
+    <owl:imports rdf:resource="http://spinrdf.org/spin"/>
   </owl:Ontology>
   <owl:Class rdf:about="http://trump-india-uk.org/example/hypertension#BPCheckup">
     <rdfs:subClassOf rdf:resource="http://smartplatforms.org/terms#Encounter"/>
   </owl:Class>
   <owl:Class rdf:ID="followUpHeadaches">
-    <rdfs:subClassOf>
-      <rdf:Description rdf:about="http://www.dotrural.ac.uk/ontologies/policies#Obligation">
-        <spinmap:rule>
-          <sp:Construct>
-            <sp:where rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >ac</sp:varName>
-                </sp:subject>
-                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
-                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-              </rdf:Description>
-            </sp:where>
-            <sp:templates rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:parseType="Resource">
-                </sp:subject>
-                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-                <sp:object rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-              </rdf:Description>
-            </sp:templates>
-          </sp:Construct>
-        </spinmap:rule>
-      </rdf:Description>
-    </rdfs:subClassOf>
     <spin:rule>
       <sp:Construct>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >gen</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
         <sp:where rdf:parseType="Collection">
           <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >prob</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:object rdf:resource="http://smartplatforms.org/terms#Problem"/>
-          </rdf:Description>
-          <rdf:Description>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >prob</sp:varName>
             </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >coded</sp:varName>
+            </sp:object>
             <sp:predicate rdf:resource="http://smartplatforms.org/terms#problemName"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >coded</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >coded</sp:varName>
+              >prob</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#code"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT/25064002"/>
-          </rdf:Description>
-          <rdf:Description>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#code"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >bpr</sp:varName>
+              >coded</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:resource="http://smartplatforms.org/terms#BloodPressure"/>
-          </rdf:Description>
-          <rdf:Description>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >bpr</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#systolic"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >sys</sp:varName>
             </sp:object>
-          </rdf:Description>
-          <rdf:Description>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#systolic"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >sys</sp:varName>
+              >bpr</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#value"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >sysval</sp:varName>
             </sp:object>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#value"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sys</sp:varName>
+            </sp:subject>
           </rdf:Description>
           <sp:Filter>
             <sp:expression>
               <sp:gt>
+                <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >140</sp:arg2>
                 <sp:arg1 rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >sysval</sp:varName>
                 </sp:arg1>
-                <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                >140</sp:arg2>
               </sp:gt>
             </sp:expression>
           </sp:Filter>
           <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >doc</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:object rdf:resource="http://smartplatforms.org/terms#Document"/>
-          </rdf:Description>
-          <rdf:Description>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >doc</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#documentType"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:resource="http://smartplatforms.org/terms/codes/DocumentType#referral"/>
-          </rdf:Description>
-          <rdf:Description>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#documentType"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >gen</sp:varName>
+              >doc</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:resource="http://www.w3.org/ns/prov#Generation"/>
-          </rdf:Description>
-          <rdf:Description>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >gen</sp:varName>
             </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#entity"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >doc</sp:varName>
             </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#entity"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >gen</sp:varName>
+            </sp:subject>
           </rdf:Description>
           <sp:NotExists>
             <sp:elements rdf:parseType="Collection">
               <rdf:Description>
+                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
                 <sp:subject rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >gen</sp:varName>
                 </sp:subject>
-                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
-                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
               </rdf:Description>
             </sp:elements>
           </sp:NotExists>
         </sp:where>
-        <sp:templates rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >gen</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
-            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-          </rdf:Description>
-        </sp:templates>
       </sp:Construct>
     </spin:rule>
+    <rdfs:subClassOf>
+      <rdf:Description rdf:about="http://www.dotrural.ac.uk/ontologies/policies#Obligation">
+        <spinmap:rule>
+          <sp:Construct>
+            <sp:templates rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <sp:subject rdf:parseType="Resource">
+                </sp:subject>
+              </rdf:Description>
+            </sp:templates>
+            <sp:where rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ac</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:where>
+          </sp:Construct>
+        </spinmap:rule>
+      </rdf:Description>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:ID="followUpHighBP">
+    <rdfs:subClassOf rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Obligation"/>
     <spin:rule>
       <sp:Construct>
-        <sp:templates rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >start</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-        </sp:templates>
         <sp:where rdf:parseType="Collection">
           <rdf:Description>
-            <sp:object rdf:resource="http://smartplatforms.org/terms#Encounter"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >enb</sp:varName>
             </sp:subject>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://smartplatforms.org/terms#Encounter"/>
           </rdf:Description>
           <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >proc</sp:varName>
-            </sp:object>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
             <sp:predicate>
               <owl:ObjectProperty rdf:ID="procedure"/>
             </sp:predicate>
-            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-          </rdf:Description>
-          <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >proc</sp:varName>
             </sp:object>
-            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasInformedBy"/>
+          </rdf:Description>
+          <rdf:Description>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >enb</sp:varName>
             </sp:subject>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#wasInformedBy"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >proc</sp:varName>
+            </sp:object>
           </rdf:Description>
           <rdf:Description>
-            <sp:object rdf:resource="http://www.w3.org/ns/prov#Start"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >start</sp:varName>
             </sp:subject>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://www.w3.org/ns/prov#Start"/>
           </rdf:Description>
           <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >start</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#activity"/>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
               >enb</sp:varName>
             </sp:object>
-            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#activity"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >start</sp:varName>
-            </sp:subject>
           </rdf:Description>
           <sp:NotExists>
             <sp:elements rdf:parseType="Collection">
               <rdf:Description>
-                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
                 <sp:subject rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >start</sp:varName>
                 </sp:subject>
-              </rdf:Description>
-            </sp:elements>
-          </sp:NotExists>
-        </sp:where>
-      </sp:Construct>
-    </spin:rule>
-    <rdfs:subClassOf rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Obligation"/>
-  </owl:Class>
-  <owl:Class rdf:ID="recordBP">
-    <rdfs:subClassOf rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Obligation"/>
-    <spin:rule>
-      <sp:Construct>
-        <sp:where rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >proc</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://smartplatforms.org/terms#Procedure"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >proc</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#procedureName"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >coded</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >coded</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#code"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >pcode</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >pcode</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://purl.org/dc/terms/identifier"/>
-            <sp:object>19681004</sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >bpr</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://smartplatforms.org/terms#BloodPressure"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >gen</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:object rdf:resource="http://www.w3.org/ns/prov#Generation"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >gen</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#activity"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >proc</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >gen</sp:varName>
-            </sp:subject>
-            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#entity"/>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >bpr</sp:varName>
-            </sp:object>
-          </rdf:Description>
-          <sp:NotExists>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >gen</sp:varName>
-                </sp:subject>
                 <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
                 <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
               </rdf:Description>
@@ -361,7 +254,7 @@
           <rdf:Description>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >gen</sp:varName>
+              >start</sp:varName>
             </sp:subject>
             <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
             <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
@@ -369,187 +262,142 @@
         </sp:templates>
       </sp:Construct>
     </spin:rule>
+  </owl:Class>
+  <owl:Class rdf:ID="recordBP">
+    <spin:rule>
+      <sp:Construct>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >gen</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+        </sp:templates>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:object rdf:resource="http://smartplatforms.org/terms#Procedure"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >proc</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >coded</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#procedureName"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >proc</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pcode</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#code"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >coded</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object>19681004</sp:object>
+            <sp:predicate rdf:resource="http://purl.org/dc/terms/identifier"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pcode</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:resource="http://smartplatforms.org/terms#BloodPressure"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >bpr</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:resource="http://www.w3.org/ns/prov#Generation"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >gen</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >proc</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#activity"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >gen</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >bpr</sp:varName>
+            </sp:object>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#entity"/>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >gen</sp:varName>
+            </sp:subject>
+          </rdf:Description>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#fulfilled"/>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >gen</sp:varName>
+                </sp:subject>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+        </sp:where>
+      </sp:Construct>
+    </spin:rule>
+    <rdfs:subClassOf rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Obligation"/>
   </owl:Class>
   <owl:ObjectProperty rdf:about="#procedure">
     <rdfs:domain rdf:resource="http://smartplatforms.org/terms#Encounter"/>
   </owl:ObjectProperty>
   <rdf:Description rdf:about="http://www.w3.org/ns/prov#InstantaneousEvent">
-    <spinmap:rule>
+    <spin:rule>
       <sp:Construct>
         <sp:templates rdf:parseType="Collection">
           <rdf:Description>
-            <sp:object rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Activation"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:subject rdf:nodeID="A0"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
-            <sp:subject rdf:nodeID="A0"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:nodeID="A1"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
-            <sp:subject rdf:nodeID="A0"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="#followUpHeadaches"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:subject rdf:nodeID="A1"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://trump-india-uk.org/example/hypertension#drdavid"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#hadTarget"/>
-            <sp:subject rdf:nodeID="A1"/>
-          </rdf:Description>
-        </sp:templates>
-        <sp:where rdf:parseType="Collection">
-          <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >prob</sp:varName>
+              >act</sp:varName>
             </sp:object>
-            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#entity"/>
-            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://smartplatforms.org/terms#Problem"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#mightHaveBeenInformedBy"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >prob</sp:varName>
+              >act1</sp:varName>
             </sp:subject>
           </rdf:Description>
           <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >coded</sp:varName>
+              >e</sp:varName>
             </sp:object>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#problemName"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#mightHaveUsed"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >prob</sp:varName>
+              >act1</sp:varName>
             </sp:subject>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT/25064002"/>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#code"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >coded</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://smartplatforms.org/terms#BloodPressure"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >bpr</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >sys</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#systolic"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >bpr</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >sysval</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#value"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >sys</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-          <sp:Filter>
-            <sp:expression>
-              <sp:gt>
-                <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                >140</sp:arg2>
-                <sp:arg1 rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >sysval</sp:varName>
-                </sp:arg1>
-              </sp:gt>
-            </sp:expression>
-          </sp:Filter>
-          <sp:NotExists>
-            <sp:elements rdf:parseType="Collection">
-              <rdf:Description>
-                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >x</sp:varName>
-                </sp:subject>
-              </rdf:Description>
-              <rdf:Description>
-                <sp:object rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >ob</sp:varName>
-                </sp:object>
-                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >x</sp:varName>
-                </sp:subject>
-              </rdf:Description>
-              <rdf:Description>
-                <sp:object rdf:resource="#followUpHeadaches"/>
-                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >ob</sp:varName>
-                </sp:subject>
-              </rdf:Description>
-            </sp:elements>
-          </sp:NotExists>
-        </sp:where>
-      </sp:Construct>
-    </spinmap:rule>
-    <spinmap:rule>
-      <sp:Construct>
-        <sp:templates rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:object rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Activation"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:subject rdf:nodeID="A2"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
-            <sp:subject rdf:nodeID="A2"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:nodeID="A3"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
-            <sp:subject rdf:nodeID="A2"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="#followUpHighBP"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:subject rdf:nodeID="A3"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >proc</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="#procedure"/>
-            <sp:subject rdf:nodeID="A3"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://trump-india-uk.org/example/hypertension#drdavid"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#hadTarget"/>
-            <sp:subject rdf:nodeID="A3"/>
           </rdf:Description>
         </sp:templates>
         <sp:where rdf:parseType="Collection">
@@ -559,17 +407,9 @@
             <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
           </rdf:Description>
           <rdf:Description>
-            <sp:object rdf:resource="http://smartplatforms.org/terms#BloodPressure"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >bpr</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-          <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >bpr</sp:varName>
+              >e</sp:varName>
             </sp:object>
             <sp:predicate rdf:resource="http://www.w3.org/ns/prov#entity"/>
             <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
@@ -577,7 +417,7 @@
           <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >proc</sp:varName>
+              >act</sp:varName>
             </sp:object>
             <sp:predicate rdf:resource="http://www.w3.org/ns/prov#activity"/>
             <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
@@ -585,223 +425,475 @@
           <rdf:Description>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >sys</sp:varName>
+              >e</sp:varName>
             </sp:object>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#systolic"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#mightHaveBeenStartedBy"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >bpr</sp:varName>
-            </sp:subject>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >sysval</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#value"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >sys</sp:varName>
+              >act1</sp:varName>
             </sp:subject>
           </rdf:Description>
           <sp:Filter>
             <sp:expression>
-              <sp:gt>
-                <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-                >140</sp:arg2>
+              <sp:ne>
+                <sp:arg2 rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >act1</sp:varName>
+                </sp:arg2>
                 <sp:arg1 rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >sysval</sp:varName>
+                  >act</sp:varName>
                 </sp:arg1>
-              </sp:gt>
+              </sp:ne>
             </sp:expression>
           </sp:Filter>
           <sp:NotExists>
             <sp:elements rdf:parseType="Collection">
               <rdf:Description>
-                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >x</sp:varName>
-                </sp:subject>
-              </rdf:Description>
-              <rdf:Description>
                 <sp:object rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >ob</sp:varName>
+                  >act</sp:varName>
                 </sp:object>
-                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#mightHaveBeenInformedBy"/>
                 <sp:subject rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >x</sp:varName>
-                </sp:subject>
-              </rdf:Description>
-              <rdf:Description>
-                <sp:object rdf:resource="#recordBP"/>
-                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >ob</sp:varName>
+                  >act1</sp:varName>
                 </sp:subject>
               </rdf:Description>
             </sp:elements>
           </sp:NotExists>
         </sp:where>
       </sp:Construct>
-    </spinmap:rule>
+    </spin:rule>
     <spinmap:rule>
       <sp:Construct>
-        <sp:templates rdf:parseType="Collection">
-          <rdf:Description>
-            <sp:object rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Activation"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:subject rdf:nodeID="A4"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
-            <sp:subject rdf:nodeID="A4"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:nodeID="A5"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
-            <sp:subject rdf:nodeID="A4"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="#recordBP"/>
-            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:subject rdf:nodeID="A5"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://trump-india-uk.org/example/hypertension#drdavid"/>
-            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#hadTarget"/>
-            <sp:subject rdf:nodeID="A5"/>
-          </rdf:Description>
-        </sp:templates>
         <sp:where rdf:parseType="Collection">
           <rdf:Description>
-            <sp:object rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >proc</sp:varName>
-            </sp:object>
-            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#activity"/>
             <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
-          </rdf:Description>
-          <rdf:Description>
-            <sp:object rdf:resource="http://smartplatforms.org/terms#Procedure"/>
             <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >proc</sp:varName>
-            </sp:subject>
+            <sp:object rdf:resource="http://www.w3.org/ns/prov#Generation"/>
           </rdf:Description>
           <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >bpr</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://smartplatforms.org/terms#BloodPressure"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#entity"/>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >coded</sp:varName>
+              >bpr</sp:varName>
             </sp:object>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#procedureName"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >proc</sp:varName>
-            </sp:subject>
           </rdf:Description>
           <rdf:Description>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#activity"/>
             <sp:object rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >pcode</sp:varName>
+              >proc</sp:varName>
             </sp:object>
-            <sp:predicate rdf:resource="http://smartplatforms.org/terms#code"/>
-            <sp:subject rdf:parseType="Resource">
-              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >coded</sp:varName>
-            </sp:subject>
           </rdf:Description>
           <rdf:Description>
-            <sp:object>19681004</sp:object>
-            <sp:predicate rdf:resource="http://purl.org/dc/terms/identifier"/>
             <sp:subject rdf:parseType="Resource">
               <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-              >pcode</sp:varName>
+              >bpr</sp:varName>
             </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#systolic"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sys</sp:varName>
+            </sp:object>
           </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sys</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#value"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sysval</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <sp:Filter>
+            <sp:expression>
+              <sp:gt>
+                <sp:arg1 rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >sysval</sp:varName>
+                </sp:arg1>
+                <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >140</sp:arg2>
+              </sp:gt>
+            </sp:expression>
+          </sp:Filter>
           <sp:NotExists>
             <sp:elements rdf:parseType="Collection">
               <rdf:Description>
-                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
-                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
                 <sp:subject rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >x</sp:varName>
                 </sp:subject>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
+                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
               </rdf:Description>
               <rdf:Description>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >x</sp:varName>
+                </sp:subject>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
                 <sp:object rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >ob</sp:varName>
                 </sp:object>
-                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
-                <sp:subject rdf:parseType="Resource">
-                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
-                  >x</sp:varName>
-                </sp:subject>
               </rdf:Description>
               <rdf:Description>
-                <sp:object rdf:resource="#recordBP"/>
-                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
                 <sp:subject rdf:parseType="Resource">
                   <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
                   >ob</sp:varName>
                 </sp:subject>
+                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <sp:object rdf:resource="#recordBP"/>
               </rdf:Description>
             </sp:elements>
           </sp:NotExists>
         </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A0"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Activation"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A0"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
+            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A0"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
+            <sp:object rdf:nodeID="A1"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A1"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="#followUpHighBP"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A1"/>
+            <sp:predicate rdf:resource="#procedure"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >proc</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A1"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#hadTarget"/>
+            <sp:object rdf:resource="http://trump-india-uk.org/example/hypertension#drdavid"/>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spinmap:rule>
+    <spinmap:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#entity"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >prob</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >prob</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://smartplatforms.org/terms#Problem"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >prob</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#problemName"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >coded</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >coded</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#code"/>
+            <sp:object rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT/25064002"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >bpr</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://smartplatforms.org/terms#BloodPressure"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >bpr</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#systolic"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sys</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sys</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#value"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >sysval</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <sp:Filter>
+            <sp:expression>
+              <sp:gt>
+                <sp:arg1 rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >sysval</sp:varName>
+                </sp:arg1>
+                <sp:arg2 rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+                >140</sp:arg2>
+              </sp:gt>
+            </sp:expression>
+          </sp:Filter>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >x</sp:varName>
+                </sp:subject>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
+                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+              </rdf:Description>
+              <rdf:Description>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >x</sp:varName>
+                </sp:subject>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ob</sp:varName>
+                </sp:object>
+              </rdf:Description>
+              <rdf:Description>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ob</sp:varName>
+                </sp:subject>
+                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <sp:object rdf:resource="#followUpHeadaches"/>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A2"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Activation"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A2"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
+            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A2"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
+            <sp:object rdf:nodeID="A3"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A3"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="#followUpHeadaches"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A3"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#hadTarget"/>
+            <sp:object rdf:resource="http://trump-india-uk.org/example/hypertension#drdavid"/>
+          </rdf:Description>
+        </sp:templates>
+      </sp:Construct>
+    </spinmap:rule>
+    <spinmap:rule>
+      <sp:Construct>
+        <sp:where rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:resource="http://spinrdf.org/spin#_this"/>
+            <sp:predicate rdf:resource="http://www.w3.org/ns/prov#activity"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >proc</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >proc</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://smartplatforms.org/terms#Procedure"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >proc</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#procedureName"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >coded</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >coded</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://smartplatforms.org/terms#code"/>
+            <sp:object rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pcode</sp:varName>
+            </sp:object>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:parseType="Resource">
+              <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+              >pcode</sp:varName>
+            </sp:subject>
+            <sp:predicate rdf:resource="http://purl.org/dc/terms/identifier"/>
+            <sp:object>19681004</sp:object>
+          </rdf:Description>
+          <sp:NotExists>
+            <sp:elements rdf:parseType="Collection">
+              <rdf:Description>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >x</sp:varName>
+                </sp:subject>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
+                <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+              </rdf:Description>
+              <rdf:Description>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >x</sp:varName>
+                </sp:subject>
+                <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
+                <sp:object rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ob</sp:varName>
+                </sp:object>
+              </rdf:Description>
+              <rdf:Description>
+                <sp:subject rdf:parseType="Resource">
+                  <sp:varName rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                  >ob</sp:varName>
+                </sp:subject>
+                <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+                <sp:object rdf:resource="#recordBP"/>
+              </rdf:Description>
+            </sp:elements>
+          </sp:NotExists>
+        </sp:where>
+        <sp:templates rdf:parseType="Collection">
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A4"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#Activation"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A4"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#wasBasedOnEvent"/>
+            <sp:object rdf:resource="http://spinrdf.org/spin#_this"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A4"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#activated"/>
+            <sp:object rdf:nodeID="A5"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A5"/>
+            <sp:predicate rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+            <sp:object rdf:resource="#recordBP"/>
+          </rdf:Description>
+          <rdf:Description>
+            <sp:subject rdf:nodeID="A5"/>
+            <sp:predicate rdf:resource="http://www.dotrural.ac.uk/ontologies/policies#hadTarget"/>
+            <sp:object rdf:resource="http://trump-india-uk.org/example/hypertension#drdavid"/>
+          </rdf:Description>
+        </sp:templates>
       </sp:Construct>
     </spinmap:rule>
   </rdf:Description>
   <rdf:Description rdf:about="http://trump-india-uk.org/example/hypertension#Encounter_2_Start">
     <prov:activity>
       <rdf:Description rdf:about="http://trump-india-uk.org/example/hypertension#Encounter_2">
+        <prov:wasAssociatedWith rdf:resource="http://trump-india-uk.org/example/hypertension#drdavid"/>
         <prov:wasInformedBy>
           <rdf:Description rdf:about="http://trump-india-uk.org/example/hypertension#bp_measure">
-            <prov:wasAssociatedWith rdf:resource="http://trump-india-uk.org/example/hypertension#susan"/>
-            <prov:qualifiedGeneration>
-              <rdf:Description rdf:about="http://trump-india-uk.org/example/hypertension#bp_gen">
-                <prov:activity rdf:resource="http://trump-india-uk.org/example/hypertension#bp_measure"/>
-              </rdf:Description>
-            </prov:qualifiedGeneration>
-            <prov:qualifiedAssociation>
-              <prov:Association rdf:about="http://trump-india-uk.org/example/hypertension#nurse_association">
-                <prov:agent rdf:resource="http://trump-india-uk.org/example/hypertension#susan"/>
-                <prov:hadRole rdf:resource="http://trump-india-uk.org/example/hypertension#nurse_role"/>
-              </prov:Association>
-            </prov:qualifiedAssociation>
             <prov:qualifiedAssociation>
               <prov:Association rdf:about="http://trump-india-uk.org/example/hypertension#patient_association">
                 <prov:hadRole rdf:resource="http://trump-india-uk.org/example/hypertension#patient_role"/>
               </prov:Association>
             </prov:qualifiedAssociation>
+            <prov:qualifiedAssociation>
+              <prov:Association rdf:about="http://trump-india-uk.org/example/hypertension#nurse_association">
+                <prov:hadRole rdf:resource="http://trump-india-uk.org/example/hypertension#nurse_role"/>
+                <prov:agent rdf:resource="http://trump-india-uk.org/example/hypertension#susan"/>
+              </prov:Association>
+            </prov:qualifiedAssociation>
+            <prov:qualifiedGeneration>
+              <rdf:Description rdf:about="http://trump-india-uk.org/example/hypertension#bp_gen">
+                <prov:activity rdf:resource="http://trump-india-uk.org/example/hypertension#bp_measure"/>
+              </rdf:Description>
+            </prov:qualifiedGeneration>
+            <prov:wasAssociatedWith rdf:resource="http://trump-india-uk.org/example/hypertension#susan"/>
           </rdf:Description>
         </prov:wasInformedBy>
       </rdf:Description>
     </prov:activity>
   </rdf:Description>
   <prov:Generation rdf:about="http://trump-india-uk.org/example/hypertension#Problem_Generation">
-    <prov:activity rdf:resource="http://trump-india-uk.org/example/hypertension#Encounter_2"/>
-    <prov:atLocation rdf:resource="http://trump-india-uk.org/example/hypertension#GoodHospital"/>
     <prov:entity rdf:resource="http://trump-india-uk.org/example/hypertension#headache"/>
+    <prov:atLocation rdf:resource="http://trump-india-uk.org/example/hypertension#GoodHospital"/>
+    <prov:activity rdf:resource="http://trump-india-uk.org/example/hypertension#Encounter_2"/>
   </prov:Generation>
   <prov:Generation rdf:about="http://trump-india-uk.org/example/hypertension#Referral_Generation">
-    <prov:activity rdf:resource="http://trump-india-uk.org/example/hypertension#Encounter_2"/>
-    <prov:atLocation rdf:resource="http://trump-india-uk.org/example/hypertension#GoodHospital"/>
     <prov:entity>
       <rdf:Description rdf:about="http://trump-india-uk.org/example/hypertension#referral_document">
-        <prov:qualifiedGeneration rdf:resource="http://trump-india-uk.org/example/hypertension#Referral_Generation"/>
         <terms:documentType rdf:resource="http://smartplatforms.org/terms/codes/DocumentType#referral"/>
+        <prov:qualifiedGeneration rdf:resource="http://trump-india-uk.org/example/hypertension#Referral_Generation"/>
       </rdf:Description>
     </prov:entity>
+    <prov:atLocation rdf:resource="http://trump-india-uk.org/example/hypertension#GoodHospital"/>
+    <prov:activity rdf:resource="http://trump-india-uk.org/example/hypertension#Encounter_2"/>
   </prov:Generation>
 </rdf:RDF>
 
