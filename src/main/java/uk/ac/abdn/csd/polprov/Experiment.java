@@ -18,6 +18,7 @@ import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Selector;
 import com.hp.hpl.jena.rdf.model.SimpleSelector;
@@ -27,12 +28,13 @@ import com.hp.hpl.jena.rdf.model.StmtIterator;
 public class Experiment 
 {
 	
+	private static Property filterHack;
+	
 	public static final String POLICY_NAMESPACE = "http://www.dotrural.ac.uk/ontologies/policies#";
 	public static final String PROV_NAMESPACE = "http://www.w3.org/ns/prov#";
 	
     public static void main( String[] args )
-    {
-    	
+    {   	
     	// the following is based largely on the examples in the SPIN API
         System.out.println( "Starting up..." );
         System.out.println(System.getProperty("user.dir"));
@@ -93,7 +95,13 @@ public class Experiment
         System.out.println("PROV statements found: " + provSet.size());
         Set<Statement> inferenceSet = filterStatementsByNS(possibleTriples.listStatements(), POLICY_NAMESPACE);
 		System.out.println("Possible PROV triples inferred: " + inferenceSet.size());
-
+        
+        // create the query property 
+        if(args.length != 0) { 
+        	filterHack = model.createProperty(POLICY_NAMESPACE, args[0]);
+        	System.out.println("FILTER: " + filterHack.toString());
+        }
+        
         // generate the power set of 'degradation situations'
         System.out.print("Generating power set of provenance degradations...");
         Set<Set<Statement>> pset = Sets.powerSet(provSet);
@@ -105,6 +113,7 @@ public class Experiment
         // TODO: need to union provset with the policyset - is there a method for doing this? 
         provSet.addAll(policySet);
         runCondition(ontModel, possibleTriples, provSet, pset);
+
     }
 
 	private static void runCondition(OntModel ontModel, Model possibleTriples,
@@ -131,8 +140,16 @@ public class Experiment
     		SPINInferences.run(ontModel, testModel, null, null, false, null);
         	System.out.print("\r"+ i++ +" of "+pset.size());
         	// add to result structure
-        	// we subtract three to quickly get rid of the three rdf:type inferences that seem to get made
-        	results.get(s.size()).add((int) testModel.size()-3);
+        	
+        	// if filter string is set, use it
+        	if(filterHack != null) {  		
+        		StmtIterator sinfs = testModel.listStatements(null, (Property) filterHack, (RDFNode) null);
+        		results.get(s.size()).add((int) sinfs.toList().size());
+        	} else {       	
+        		// otherwise add size of whole inference set
+        		// we subtract three to quickly get rid of the three rdf:type inferences that seem to get made
+        		results.get(s.size()).add((int) testModel.size()-3);
+        	}
         	// replace removed statements
     		ontModel.add(testList);
     		// remove inferences and reset
@@ -144,12 +161,6 @@ public class Experiment
         System.out.println("\n\nRESULTS");
         System.out.println("=======");
 
-        System.out.println("FULL POSSIBLE TRIPLE LIST:");
-        StmtIterator s = possibleTriples.listStatements();
-        while(s.hasNext()) System.out.println(s.next());
-        System.out.println("FULL INITIAL TRIPLE LIST:");
-        Iterator<Statement> s2 = provSet.iterator();
-        while(s2.hasNext()) System.out.println(s2.next());
         System.out.println("Missing links\tAvg. Inferred statements");
 
         for(int k = 1; k < possibleTriples.size(); k++)
